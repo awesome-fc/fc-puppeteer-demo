@@ -49,18 +49,26 @@ Allow to anonynously report usage statistics to improve the tool over time? (Y/n
 
 puppeteer 的安装，即使是在传统的 linux 机器上，也不是那么的轻松， 因为 puppeteer 本身依赖了非常多的系统库，要安装哪些系统库、如何安装这些系统库成了一个比较头痛的问题，要将这些系统库打包到函数计算的代码包中更是一个困难的问题
 
+3. 免费开通相关的阿里云服务
+
+- [函数计算](https://fc.console.aliyun.com)
+
+- [文件存储](https://nasnext.console.aliyun.com)
+
+- [容器镜像服务](https://cr.console.aliyun.com)
+
 ### nodejs8
 
 对于 nodejs8, 函数计算命令行工具 [Funcraft](https://help.aliyun.com/document_detail/140283.html) 已经集成了 Puppeteer 的解决方案，只要 package.json 中包含了 puppeteer 依赖，然后使用 fun install -d 即可一键安装所有系统依赖。
 
 ```bash
-# cd nodejs8
+cd nodejs8
 
-# fun install -d
+fun install -d
 
-# fun nas sync
+fun nas sync
 
-# fun deploy -y
+fun deploy -y
 ```
 
 唯一的不足，Funcraft 集成 Puppeteer 的解决方案 Puppeteer 版本比较老， 可能最新的 Puppeteer 版本会有些兼容性问题。
@@ -70,27 +78,37 @@ puppeteer 的安装，即使是在传统的 linux 机器上，也不是那么的
 nodejs10 版本使用的是最新的 Puppeteer 版本 5.3.1，可以依靠 fun install 进行第三方依赖打包
 
 ```bash
-# cd nodejs10
+cd nodejs10
 
-# fun install -v
+fun install -v
 
-# fun nas sync
+fun nas sync
 
-# fun deploy -y
+fun deploy -y
 ```
 
 ### nodejs12
 
 nodejs12 版本使用的是最新的 Puppeteer 版本 5.3.1，可以依靠 fun install 进行第三方依赖打包
 
+**注意:** 由于目前最新的 fun 版本存在 bug， fun install 依赖的 image 有些问题， 这里可以先这样 hack 下, 下一次新发布的 fun 版本会修复这个问题
+
 ```bash
-# cd nodejs12
+docker pull registry.cn-beijing.aliyuncs.com/fc-demo/runtime-nodejs12:build-1.9.6
 
-# fun install -v
+docker tag registry.cn-beijing.aliyuncs.com/fc-demo/runtime-nodejs12:build-1.9.6 registry.cn-beijing.aliyuncs.com/aliyunfc/runtime-nodejs12:build-1.9.6
+```
 
-# fun nas sync
+接着按照如下命令部署即可
 
-# fun deploy -y
+```bash
+cd nodejs12
+
+fun install -v
+
+fun nas sync
+
+fun deploy -y
 ```
 
 ### custom-container
