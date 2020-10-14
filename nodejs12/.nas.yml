@@ -1,0 +1,6 @@
+nasMappings:
+  puppeteer-nodejs12:
+    - localNasDir: .fun/root
+      remoteNasDir: /mnt/auto/root
+    - localNasDir: node_modules
+      remoteNasDir: /mnt/auto/node_modules
