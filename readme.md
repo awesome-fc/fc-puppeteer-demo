@@ -91,16 +91,6 @@ fun deploy -y
 
 nodejs12 版本使用的是最新的 Puppeteer 版本 5.3.1，可以依靠 fun install 进行第三方依赖打包
 
-**注意:** 由于目前最新的 fun 版本存在 bug， fun install 依赖的 image 有些问题， 这里可以先这样 hack 下, 下一次新发布的 fun 版本会修复这个问题
-
-```bash
-docker pull registry.cn-beijing.aliyuncs.com/fc-demo/runtime-nodejs12:build-1.9.6
-
-docker tag registry.cn-beijing.aliyuncs.com/fc-demo/runtime-nodejs12:build-1.9.6 registry.cn-beijing.aliyuncs.com/aliyunfc/runtime-nodejs12:build-1.9.6
-```
-
-接着按照如下命令部署即可
-
 ```bash
 cd nodejs12
 
