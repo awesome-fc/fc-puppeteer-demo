@@ -26,6 +26,8 @@ Puppeteer 可以将 Chrome 或者 Chromium 以无界面的方式运行（当然�
 
 ## 快速开始
 
+puppeteer目前可以通过s工具进行部署，可以参考[start-puppeteer](https://github.com/devsapp/start-puppeteer)
+
 ### 准备工作
 
 1. 安装 [Funcraft](https://help.aliyun.com/document_detail/140283.html)，最简单的方式就是直接下载可执行的二进制文件。
